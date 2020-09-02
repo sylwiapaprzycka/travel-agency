@@ -6,11 +6,11 @@ import PropTypes from 'prop-types';
 import OrderOption from '../OrderOption/OrderOption';
 
 
-const OrderForm = ({tripCost, options}) => (
+const OrderForm = ({tripCost, options, setOrderOption}) => (
   <Row>
     {pricing.map(option => (
       <Col key={option.id} md={4}>
-        <OrderOption {...option}/>
+        <OrderOption {...option} currentValue={options[option.id]} setOrderOption={setOrderOption} />
       </Col>
     ))}
     <Col xs={12}>
@@ -23,6 +23,7 @@ const OrderForm = ({tripCost, options}) => (
 OrderForm.propTypes = {
   options: PropTypes.object,
   tripCost: PropTypes.node,
+  setOrderOption: PropTypes.any,
 };
 
 export default OrderForm;
